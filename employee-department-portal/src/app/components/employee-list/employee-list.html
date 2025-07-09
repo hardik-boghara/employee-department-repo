@@ -1,0 +1,33 @@
+<div class="container text-center mt-5">
+    <h1 class="text-success mb-3">Welcome to Employee Directory</h1>
+    <div class="container mt-4">
+        <h3 class="text-center text-primary mb-4">Search Employees by Department</h3>
+
+        <div class="input-group mb-4">
+            <input [(ngModel)]="departmentId" class="form-control" placeholder="Enter Department ID" />
+            <button class="btn btn-primary" (click)="searchEmployees()">Search</button>
+        </div>
+        <table *ngIf="employees.length > 0" class="table table-bordered table-hover">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of employees" class="text-center">
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.email }}</td>
+                    <td>{{ emp.position }}</td>
+                    <td>₹{{ emp.salary | number }}</td>
+                    <td>
+                        <a [routerLink]="['/employee', emp.id]" class="btn btn-info btn-sm">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

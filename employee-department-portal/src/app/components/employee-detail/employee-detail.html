@@ -1,0 +1,34 @@
+<div class="container mt-4" *ngIf="emp">
+    <h3 class="mb-4 text-center text-primary">Employee Details</h3>
+
+    <form (ngSubmit)="updateEmployee()" class="border p-4 shadow rounded bg-light">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" [(ngModel)]="emp.name" name="name" class="form-control" placeholder="Enter name" />
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" [(ngModel)]="emp.email" name="email" class="form-control" placeholder="Enter email" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="position" class="form-label">Position</label>
+                <input id="position" [(ngModel)]="emp.position" name="position" class="form-control"
+                    placeholder="Enter position" />
+            </div>
+            <div class="col-md-6">
+                <label for="salary" class="form-label">Salary</label>
+                <input type="number" id="salary" [(ngModel)]="emp.salary" name="salary" class="form-control"
+                    placeholder="Enter salary" />
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+            <button type="submit" class="btn btn-success me-2">Update Changes</button>
+            <button type="button" class="btn btn-danger" (click)="deleteEmployee()">Delete Employee</button>
+        </div>
+    </form>
+</div>
